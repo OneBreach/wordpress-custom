@@ -13,4 +13,64 @@ function mijn_menu_registreren()
     ));
 }
 add_action('init', 'mijn_menu_registreren');
+
+
+//footer function 
+function customizer_footer_settings( $wp_customize ) {
+    $wp_customize->add_section( 'footer_settings', array(
+        'title'    => __( 'Footer Settings', 'your-theme-textdomain' ),
+        'priority' => 120,
+    ) );
+
+    $wp_customize->add_setting( 'footer_twitter_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_twitter_url', array(
+        'label'   => __( 'Twitter URL', 'your-theme-textdomain' ),
+        'section' => 'footer_settings',
+        'type'    => 'url',
+    ) );
+
+    $wp_customize->add_setting( 'footer_facebook_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_facebook_url', array(
+        'label'   => __( 'Facebook URL', 'your-theme-textdomain' ),
+        'section' => 'footer_settings',
+        'type'    => 'url',
+    ) );
+
+    $wp_customize->add_setting( 'footer_instagram_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_instagram_url', array(
+        'label'   => __( 'Instagram URL', 'your-theme-textdomain' ),
+        'section' => 'footer_settings',
+        'type'    => 'url',
+    ) );
+
+    $wp_customize->add_setting( 'footer_rss_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_rss_url', array(
+        'label'   => __( 'RSS URL', 'your-theme-textdomain' ),
+        'section' => 'footer_settings',
+        'type'    => 'url',
+    ) );
+
+    $wp_customize->add_setting( 'footer_email', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_email',
+    ) );
+    $wp_customize->add_control( 'footer_email', array(
+        'label'   => __( 'Email Address', 'your-theme-textdomain' ),
+        'section' => 'footer_settings',
+        'type'    => 'email',
+    ) );
+}
+add_action( 'customize_register', 'customizer_footer_settings' );
 ?>
