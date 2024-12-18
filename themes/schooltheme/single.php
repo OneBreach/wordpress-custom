@@ -48,6 +48,6 @@ get_header();
     ?>
 </div>
 
-<?php
+<!-- <?php
 get_footer();
-?>
+?> -->

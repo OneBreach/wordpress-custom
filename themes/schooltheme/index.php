@@ -121,7 +121,7 @@ get_header();
 <?php get_sidebar(); ?>
 
 <!-- Footer -->
-<?php get_footer(); ?>
+<!-- <?php get_footer(); ?> -->
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
