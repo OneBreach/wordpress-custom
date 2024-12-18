@@ -2101,6 +2101,7 @@ ul.posts article header > :last-child {
 .mini-post .image:hover img {
   transform: scale(1.05);
 }
+
 .mini-post header {
   padding: 1.25em 4.25em 0.1em 1.25em;
   min-height: 4em;

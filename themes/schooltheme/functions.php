@@ -14,6 +14,12 @@ function mijn_menu_registreren()
 }
 add_action('init', 'mijn_menu_registreren');
 
+//adding font awesome
+function load_font_awesome() {
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'load_font_awesome' );
+
 
 //footer function 
 function customizer_footer_settings( $wp_customize ) {
