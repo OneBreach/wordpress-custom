@@ -72,5 +72,22 @@ function customizer_footer_settings( $wp_customize ) {
         'type'    => 'email',
     ) );
 }
+// add custom sidebar widget 
+function theme_widgets_init() {
+    // Registreer een widget area (sidebar)
+    register_sidebar( array(
+        'name'          => 'Sidebar 1', // De naam van de sidebar
+        'id'            => 'sidebar-1', // De id van de sidebar
+        'before_widget' => '<section class="widget">', // Het openen van elke widget
+        'after_widget'  => '</section>', // Het sluiten van elke widget
+        'before_title'  => '<h2 class="widget-title">', // Het openen van de titel
+        'after_title'   => '</h2>', // Het sluiten van de titel
+    ) );
+}
+add_action( 'widgets_init', 'theme_widgets_init' );
+
+
+
+
 add_action( 'customize_register', 'customizer_footer_settings' );
 ?>
