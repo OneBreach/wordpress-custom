@@ -6,13 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-
-    <script type="text/javascript" src="<?= get_template_directory_uri(); ?>/assets/js/breakpoints.min.js"></script>
-    <script type="text/javascript" src="<?= get_template_directory_uri(); ?>/assets/js/browser.min.js"></script>
-    <script type="text/javascript" src="<?= get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?= get_template_directory_uri(); ?>/assets/js/main.js"></script>
-    <script type="text/javascript" src="<?= get_template_directory_uri(); ?>/assets/js/util.js"></script>
-
 </head>
 
 <body class="is-preload" <?php body_class(); ?>>
@@ -67,17 +60,6 @@
                 ?>
             </nav>
             <nav class="main">
-                <ul>
-                    <li class="search">
-                        <a class="fa-search" href="#search">Search</a>
-                        <form id="search" method="get" action="#">
-                            <input type="text" name="query" placeholder="Search" />
-                        </form>
-                    </li>
-                    <li class="menu">
-                        <a class="fa-bars" href="#menu">Menu</a>
-                    </li>
-                </ul>
+                <?php get_search_form(); ?>
             </nav>
         </header>
-        <h1><?php echo (get_template_directory_uri()) ?></h1>

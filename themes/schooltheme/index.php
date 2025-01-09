@@ -58,6 +58,7 @@ get_header();
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => -1,
+        's' => isset($_GET['s']) ? $_GET['s'] : ''
     );
 
     $query = new WP_Query($args);
@@ -66,39 +67,39 @@ get_header();
         while ($query->have_posts()):
             $query->the_post();
     ?>
-    <article class="post">
-        <header>
-            <div class="title">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <p><?php the_excerpt(); ?></p>
-            </div>
-            <div class="meta">
-                <time class="published" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
-                <a href="#" class="author">
-                    <span class="name"><?php the_author(); ?></span>
-                    <img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt="<?php the_author(); ?>" />
-                </a>
-            </div>
-        </header>
-        
-        <?php if (has_post_thumbnail()): ?>
-        <a href="<?php the_permalink(); ?>" class="image featured">
-            <?php the_post_thumbnail('full'); ?>
-        </a>
-        <?php endif; ?>
-        
-        <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
-        <footer>
-            <ul class="actions">
-                <li><a href="<?php the_permalink(); ?>" class="button large">Continue Reading</a></li>
-            </ul>
-            <ul class="stats">
-                <li><a href="#"><?php the_category(', '); ?></a></li>
-                <li><a href="#" class="icon solid fa-heart"><?php echo get_comments_number(); ?></a></li>
-                <li><a href="#" class="icon solid fa-comment"><?php echo get_comments_number(); ?></a></li>
-            </ul>
-        </footer>
-    </article>
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?php the_excerpt(); ?></p>
+                    </div>
+                    <div class="meta">
+                        <time class="published" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+                        <a href="#" class="author">
+                            <span class="name"><?php the_author(); ?></span>
+                            <img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt="<?php the_author(); ?>" />
+                        </a>
+                    </div>
+                </header>
+
+                <?php if (has_post_thumbnail()): ?>
+                    <a href="<?php the_permalink(); ?>" class="image featured">
+                        <?php the_post_thumbnail('full'); ?>
+                    </a>
+                <?php endif; ?>
+
+                <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
+                <footer>
+                    <ul class="actions">
+                        <li><a href="<?php the_permalink(); ?>" class="button large">Continue Reading</a></li>
+                    </ul>
+                    <ul class="stats">
+                        <li><a href="#"><?php the_category(', '); ?></a></li>
+                        <li><a href="#" class="icon solid fa-heart"><?php echo get_comments_number(); ?></a></li>
+                        <li><a href="#" class="icon solid fa-comment"><?php echo get_comments_number(); ?></a></li>
+                    </ul>
+                </footer>
+            </article>
     <?php
         endwhile;
     else:
@@ -131,4 +132,5 @@ get_header();
 <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
